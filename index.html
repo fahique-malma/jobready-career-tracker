@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobReady - Career Tracker</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+      
+      <aside class="sidebar">
+        <div class="logo">JOB-READY</div>
+        <nav>
+          <ul>
+            <li class="active" data-page="dashboard">Dashboard</li>
+            <li data-page="tracker">Job Tracker</li>
+          </ul>
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="topbar">
+          <button class="menu-btn">☰</button>
+          <h1 id="pageTitle">DASHBOARD</h1>
+        </div>
+
+        <section id="dashboard" class="page active-page">
+          <div class="stats-grid">
+            <div class="stat-card green">
+              <h2 id="totalJobs">3</h2>
+              <p>TOTAL</p>
+            </div>
+
+            <div class="stat-card gray">
+              <h2 id="savedJobs">1</h2>
+              <p>SAVED</p>
+            </div>
+
+            <div class="stat-card yellow">
+              <h2 id="appliedJobs">1</h2>
+              <p>APPLIED</p>
+            </div>
+
+            <div class="stat-card blue">
+              <h2 id="interviewJobs">1</h2>
+              <p>INTERVIEW</p>
+            </div>
+
+            <div class="stat-card lime">
+              <h2 id="offerJobs">0</h2>
+              <p>OFFERS</p>
+            </div>
+
+            <div class="stat-card red">
+              <h2 id="rejectedJobs">0</h2>
+              <p>REJECTED</p>
+            </div>
+          </div>
+
+          <div class="dashboard-grid">
+            <div class="recent-box">
+              <div class="section-title">RECENT APPLICATIONS</div>
+              <div id="recentApplications"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="tracker" class="page">
+          <div class="tracker-header">
+            <button id="openModal">+ ADD JOB</button>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>ROLE</th>
+                  <th>STATUS</th>
+                  <th>APPLIED</th>
+                  <th>DEADLINE</th>
+                  <th>NOTES</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody id="jobTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+
+    <div class="modal" id="jobModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="modalTitle">NEW_RECORD</h2>
+        </div>
+
+        <form id="jobForm">
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Job Title</label>
+              <input type="text" id="title" required />
+            </div>
+
+            <div class="input-group">
+              <label>Company</label>
+              <input type="text" id="company" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Date Applied</label>
+            <input type="date" id="appliedDate" required />
+          </div>
+
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Status</label>
+
+              <select id="status">
+                <option>Applied</option>
+                <option>Interview</option>
+                <option>Offer</option>
+                <option>Rejected</option>
+                <option>Saved</option>
+              </select>
+            </div>
+
+            <div class="input-group">
+              <label>Deadline</label>
+              <input type="date" id="deadline" required />
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label>Notes</label>
+            <textarea id="notes"></textarea>
+          </div>
+
+          <div class="modal-actions">
+            <button type="button" id="closeModal">CANCEL</button>
+            <button type="submit" class="submit-btn" id="submitJobBtn">
+              SAVE
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
